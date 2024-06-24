@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Students</h1>
+<a href="{{ url_for('main.add_student') }}">Add Student</a>
+<ul>
+    {% for student in students %}
+        <li>{{ student.FirstName }} {{ student.LastName }} - {{ student.Email }} ({{ student.DateOfBirth }})     
+            <a href="{{ url_for('main.confirm_delete', student_id=student.StudentID) }}">Delete</a>
+        </li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('main.deleted_items') }}">View Deleted Students</a>
+{% endblock %}

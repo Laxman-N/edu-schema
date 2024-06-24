@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Add New Assignment</h1>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.CourseID.label }}<br>
+        {{ form.CourseID() }}
+    </p>
+    <p>
+        {{ form.AssignmentName.label }}<br>
+        {{ form.AssignmentName() }}
+    </p>
+    <p>
+        {{ form.MaxScore.label }}<br>
+        {{ form.MaxScore() }}
+    </p>
+    <p>
+        {{ form.Submit() }}
+    </p>
+</form>
+{% endblock %}

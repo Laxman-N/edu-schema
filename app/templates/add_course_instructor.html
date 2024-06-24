@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Assign Instructor to Course</h1>
+<form method="POST" action="{{ url_for('main.add_course_instructor') }}">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.CourseID.label }}<br>
+        {{ form.CourseID() }}
+    </div>
+    <div>
+        {{ form.InstructorID.label }}<br>
+        {{ form.InstructorID() }}
+    </div>
+    <div>
+        {{ form.Submit() }}
+    </div>
+</form>
+{% endblock %}

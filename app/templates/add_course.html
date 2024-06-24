@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Add Course</h1>
+<form method="POST" action="{{ url_for('main.add_course') }}">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.CourseName.label }}<br>
+        {{ form.CourseName(size=32) }}
+    </div>
+    <div>
+        {{ form.Description.label }}<br>
+        {{ form.Description(size=64) }}
+    </div>
+    <div>
+        {{ form.StartDate.label }}<br>
+        {{ form.StartDate }}
+    </div>
+    <div>
+        {{ form.EndDate.label }}<br>
+        {{ form.EndDate }}
+    </div>
+    <div>
+        {{ form.Price.label }}<br>
+        {{ form.Price }}
+    </div>
+    <div>
+        {{ form.Submit() }}
+    </div>
+</form>
+{% endblock %}

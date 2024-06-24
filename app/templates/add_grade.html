@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Add Grade</h1>
+<form method="POST" action="{{ url_for('main.add_grade') }}">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.AssessmentID.label }}<br>
+        {{ form.AssessmentID() }}
+    </div>
+    <div>
+        {{ form.StudentID.label }}<br>
+        {{ form.StudentID() }}
+    </div>
+    <div>
+        {{ form.Score.label }}<br>
+        {{ form.Score }}
+    </div>
+    <div>
+        {{ form.Submit() }}
+    </div>
+</form>
+{% endblock %}

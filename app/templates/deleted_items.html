@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Deleted Items</h1>
+
+<h2>Students:</h2>
+<ul>
+    {% for student in deleted_students %}
+    <li>{{ student.FirstName }} {{ student.LastName }} - Deleted on: {{ student.EnrollmentDate }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Courses:</h2>
+<ul>
+    {% for course in deleted_courses %}
+    <li>{{ course.CourseName }} - Deleted on: {{ course.EndDate }}</li>
+    {% endfor %}
+</ul>
+
+<h2>Instructors:</h2>
+<ul>
+    {% for instructor in deleted_instructors %}
+    <li>{{ instructor.FirstName }} {{ instructor.LastName }} - Deleted</li>
+    {% endfor %}
+</ul>
+
+<h2>Assessments:</h2>
+<ul>
+    {% for assessment in deleted_assessments %}
+    <li>{{ assessment.AssessmentName }} - Max Score: {{ assessment.MaxScore }} - Deleted</li>
+    {% endfor %}
+</ul>
+
+<h2>Grades:</h2>
+<ul>
+    {% for grade in deleted_grades %}
+    <li>{{ grade.Student.FirstName }} {{ grade.Student.LastName }} - {{ grade.Assessment.AssessmentName }} ({{ grade.Score }}) - Deleted</li>
+    {% endfor %}
+</ul>
+
+<h2>Course Instructors:</h2>
+<ul>
+    {% for ci in deleted_course_instructors %}
+    <li>{{ ci.Course.CourseName }} - {{ ci.Instructor.FirstName }} {{ ci.Instructor.LastName }} - Deleted</li>
+    {% endfor %}
+</ul>
+
+<h2>Enrollments:</h2>
+<ul>
+    {% for enrollment in deleted_enrollments %}
+    <li>{{ enrollment.Student.FirstName }} {{ enrollment.Student.LastName }} - {{ enrollment.Course.CourseName }} - Deleted on: {{ enrollment.EnrollmentDate }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

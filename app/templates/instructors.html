@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Instructors</h1>
+<a href="{{ url_for('main.add_instructor') }}">Add Instructor</a>
+<ul>
+    {% for instructor in instructors %}
+        <li>{{ instructor.FirstName }} {{ instructor.LastName }} - {{ instructor.Email }} ({{ instructor.PhoneNumber }})
+            <form action="{{ url_for('main.delete_instructor', id=instructor.InstructorID) }}" method="POST" style="display:inline;" onsubmit="return confirmDelete();">
+                {{ form.hidden_tag() }}
+                <input type="hidden" name="id" value="{{ instructor.InstructorID }}">
+                <button type="submit">Delete</button>
+            </form>
+            
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Assessments</h1>
+<a href="{{ url_for('main.add_assessment') }}">Add Assessment</a>
+<ul>
+    {% for assessment in assessments %}
+        <li>{{ assessment.AssessmentName }} - {{ assessment.course.CourseName }} (Max Score: {{ assessment.MaxScore }})</li>
+    {% endfor %}
+</ul>
+{% endblock %}
